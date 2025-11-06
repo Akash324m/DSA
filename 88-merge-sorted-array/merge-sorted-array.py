@@ -1,41 +1,25 @@
-class Solution:
-    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
-        if m==0:
-            if n==0:
-                return
-            for i in range(n):
-                nums1[i] = nums2[i]
-            return
-        elif m>0 and n==0:
-            return
-        
-        for j in range(n):
-            nums1.pop(-1)
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        i= m-1
+        j= n-1
+        k= m+n-1
+        while i>=0 and j>=0:
+            if nums1[i] > nums2[j]:
+                nums1[k]=nums1[i]
+                i-=1
+            else:
+                nums1[k]=nums2[j]
+                j-=1
+            k-=1
+        while j>=0:
+            nums1[k]=nums2[j]
+            j-=1
+            k-=1
+       
 
-        for x in nums2:
-            nums1.insert(m-1,x)
-        nums1.sort()
-        print(nums1)
 
+                
 
-        # x=0
-        # y=0
-        # temp=0
-        # for i in range(m):
-        #     for j in range(n):
-        #         if x==m or y==n:
-        #             temp=i
-        #             print(i)
-        #             break
-        #         if nums1[x]>nums2[y]:
-        #             nums1.insert(x,nums2[y])
-        #     # elif nums1[x]<nums2[y]:
-        #     #     nums1.insert(x,nums2[y])
-        #     # if x==y :
-        #     #     x+=1
-        #     #     continue
-        #     # if y!=n:
-        #     #     y+=1
-
+            
 
         
