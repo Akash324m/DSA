@@ -1,23 +1,15 @@
-class Solution:
-    def reverse(self, x: int) -> int:
-        arr=[]
+class Solution(object):
+    def reverse(self, x):
+        n=False
         if x<0:
-            sign = "m"
-        else:
-            sign = "p"
-        x = abs(x)
-        while(x>0):
-            rem = x%10
-            arr.append(rem)
-            x = x//10
-        arr = arr[::-1]
-        s = 0
-        for i in range(len(arr)):
-            s += arr[i]*(10**i)
-        if sign == "m":
-            s = s - (2*s)
-        if -2147483648 < s and s < 2147483648:
-            return s
+            n=True
+        r=int((str(abs(x)))[::-1])
+        print(r)
+        if -2147483648 < r and r < 2147483647:
+            if n==True:
+                return -r
+            else:
+                return r
         else:
             return 0
 
